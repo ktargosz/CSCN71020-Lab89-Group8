@@ -5,45 +5,48 @@
 #include "Position.h"
 #include "Classifier.h"
 
+/// @file classifier.cpp
+/// @brief This file implements the classifier methods
+/// @author Group 8
+/// @date April 2022
+
 using namespace std;
 
-Classifier::Classifier(string textFile) : positionArr(vector<Position>())
+/// Classifier contructor will reads points from file and place them into positionArr 
+classifier::classifier(string textFile) : positionArr(vector<position>())
 {
-	ifstream fin;
+	// Opening file
+	ifstream inputFile;
+	inputFile.open(textFile);
 
-	fin.open(textFile);
-
-
-	if (fin.is_open())
+	if (inputFile.is_open())
 	{
-		string line;
+		string fileLine;
 
-		while (getline(fin, line))
+		while (getline(inputFile, fileLine))
 		{
-			string delimiter = ",";
+			string delimiter = ","; // Coordinates are separated by a comma in the text files
 
 			double data[4];
 
-
 			for (int k = 0; k < 4; k++)
 			{
-				string token = line.substr(0, line.find(delimiter));
+				string token = fileLine.substr(0, fileLine.find(delimiter));
 
 				data[k] = stod(token);
 
-				line.erase(0, line.find(delimiter) + 1);
+				fileLine.erase(0, fileLine.find(delimiter) + 1);
 
 			}
 
-			Position currentLineData{ data[0], data[1], data[2], data[3] };
+			position currentLineData{ data[0], data[1], data[2], data[3] };
 
 			positionArr.push_back(currentLineData);
-
-
 		}
 	}
 	else
 	{
-		exit;
+		cout << "File Error";
+		exit(1);
 	}
 }

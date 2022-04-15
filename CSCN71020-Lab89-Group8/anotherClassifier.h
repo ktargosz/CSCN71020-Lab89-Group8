@@ -1,7 +1,12 @@
 #pragma once
 #include "classifier.h"
-class AnotherClassifier :
-    public Classifier
+
+/// @file anotherClassifier.h
+/// @brief This file contains the class anotherClassifier
+/// @author Group 8
+/// @date April 2022
+
+class anotherClassifier : public classifier
 {
-    virtual double Classify(Position unknown) override;
+    virtual double classify(position unknown) override;
 };

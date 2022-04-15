@@ -1,14 +1,19 @@
 #pragma once
 
-class Position
+/// @file position.h
+/// @brief This file contains the class position
+/// @author Group 8
+/// @date April 2022
+
+class position
 {
 public:
 
-	Position(double x, double y, double z);
+	position(double x, double y, double z);
 
-	Position(double x, double y, double z, double classification);
+	position(double x, double y, double z, double classification);
 
-	double distance(Position other);
+	double distance(position other);
 
 	double getClassification();
 

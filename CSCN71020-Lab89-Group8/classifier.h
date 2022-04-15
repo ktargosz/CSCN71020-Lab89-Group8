@@ -4,18 +4,20 @@
 #include <vector>
 #include "position.h"
 
-class Classifier
+/// @file classifier.h
+/// @brief This file contains the class classifier
+/// @author Group 8
+/// @date April 2022
+
+class classifier
 {
 public:
 
-	virtual double Classify(Position unknown) = 0;
+	virtual double classify(position unknown) = 0;
 
 protected:
 
-	Classifier(std::string textFile);
-	std::vector<Position> positionArr;
-
-private:
-
+	classifier(std::string textFile);
+	std::vector<position> positionArr;
 };
 
