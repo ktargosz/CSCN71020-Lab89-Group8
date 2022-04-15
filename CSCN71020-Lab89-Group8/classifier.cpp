@@ -29,11 +29,11 @@ classifier::classifier(string textFile) : positionArr(vector<position>())
 
 			double data[4];
 
-			for (int k = 0; k < 4; k++)
+			for (int x = 0; x < 4; x++)
 			{
 				string token = fileLine.substr(0, fileLine.find(delimiter));
 
-				data[k] = stod(token);
+				data[x] = stod(token);
 
 				fileLine.erase(0, fileLine.find(delimiter) + 1);
 
@@ -44,9 +44,9 @@ classifier::classifier(string textFile) : positionArr(vector<position>())
 			positionArr.push_back(currentLineData);
 		}
 	}
-	else
+	else // Return error message and exit if file cannot be opened
 	{
-		cout << "File Error";
+		cout << "Error opening file";
 		exit(1);
 	}
 }

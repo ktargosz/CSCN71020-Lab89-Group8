@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="anotherClassifier.h" />
     <ClInclude Include="classifier.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="nearestNeighbor.h" />
     <ClInclude Include="position.h" />
   </ItemGroup>

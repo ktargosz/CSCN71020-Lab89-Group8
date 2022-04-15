@@ -10,7 +10,7 @@ using namespace std;
 
 double anotherClassifier::classify(position unknown)
 {
-	cout << "Classify" << endl;
+	cout << "Classify" << endl; // Prints "Classify" to cout
 
 	return 0;
 
