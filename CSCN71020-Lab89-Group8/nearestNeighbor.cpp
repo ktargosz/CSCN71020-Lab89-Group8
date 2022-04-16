@@ -1,5 +1,4 @@
 #include "nearestNeighbor.h"
-#define INITALMIN 1000
 
 /// @file nearestNeighbor.cpp
 /// @brief This file implements the nearestNeighbor methods
@@ -10,20 +9,19 @@ using namespace std;
 
 double nearestNeighbor::classify(position unknown)
 {
-	double currentMinDistance = INITALMIN;
+	double currentMinimum = INIT_DISTANCE;
 
-	double classificationOfMin = -1;
+	double classMin = -1;
 
 	for (int i = 0; i < positionArr.size(); i++)
 	{
-		if (positionArr[i].distance(unknown) < currentMinDistance)
+		if (positionArr[i].distance(unknown) < currentMinimum)
 		{
-			classificationOfMin = positionArr[i].getClassification();
-
-			currentMinDistance = positionArr[i].distance(unknown);
+			classMin = positionArr[i].getClassification();
+			currentMinimum = positionArr[i].distance(unknown);
 		}
 	}
-	return classificationOfMin;
+	return classMin;
 };
 
 nearestNeighbor::nearestNeighbor(string textFile) : classifier(textFile) {};

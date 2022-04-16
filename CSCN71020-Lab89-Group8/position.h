@@ -10,19 +10,12 @@ class position
 public:
 
 	position(double x, double y, double z);
-
 	position(double x, double y, double z, double classification);
-
 	double distance(position other);
-
 	double getClassification();
 
 private:
 
-	double x;
-	double y;
-	double z;
-
+	double x, y, z;
 	double classification;
-
 };
