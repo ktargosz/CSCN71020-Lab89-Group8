@@ -11,13 +11,10 @@
 
 class classifier
 {
-public:
-
-	virtual double classify(position unknown) = 0;
-
 protected:
-
 	classifier(std::string textFile);
 	std::vector<position> positionArr;
-};
 
+public:
+	virtual double classify(position unknown) = 0;
+};

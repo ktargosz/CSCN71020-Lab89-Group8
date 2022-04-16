@@ -27,18 +27,16 @@ classifier::classifier(string textFile) : positionArr(vector<position>())
 		{
 			string delimiter = ","; // Coordinates are separated by a comma in the text files
 
+			// Each set of data points gets put into an array of doubles
 			double data[4];
-
 			for (int x = 0; x < 4; x++)
 			{
-				string token = fileLine.substr(0, fileLine.find(delimiter));
-
-				data[x] = stod(token);
-
+				string coordinate = fileLine.substr(0, fileLine.find(delimiter));
+				data[x] = stod(coordinate);
 				fileLine.erase(0, fileLine.find(delimiter) + 1);
-
 			}
 
+			// Position object is created with each data point gathered from the file
 			position currentLineData{ data[0], data[1], data[2], data[3] };
 
 			positionArr.push_back(currentLineData);

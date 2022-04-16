@@ -9,19 +9,20 @@ using namespace std;
 
 double nearestNeighbor::classify(position unknown)
 {
-	double currentMinimum = INIT_DISTANCE;
+	double initialDistance = INIT_DISTANCE;
 
-	double classMin = -1;
+	double classMin = INVALID_ORIENTATION; // -1 is an invalid orientation. Valid returns will be 1-6
 
 	for (int i = 0; i < positionArr.size(); i++)
 	{
-		if (positionArr[i].distance(unknown) < currentMinimum)
+		if (positionArr[i].distance(unknown) < initialDistance) // Setting the distance when valid
 		{
 			classMin = positionArr[i].getClassification();
-			currentMinimum = positionArr[i].distance(unknown);
+			initialDistance = positionArr[i].distance(unknown);
 		}
 	}
 	return classMin;
 };
 
+// Construct nearestNeighbor 
 nearestNeighbor::nearestNeighbor(string textFile) : classifier(textFile) {};

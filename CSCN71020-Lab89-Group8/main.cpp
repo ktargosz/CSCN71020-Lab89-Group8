@@ -69,14 +69,11 @@ int main()
 				for (int x = 0; x < 3; x++)
 				{
 					string coordinate = line.substr(0, line.find(delimiter));
-
 					data[x] = stod(coordinate);
-
 					line.erase(0, line.find(delimiter) + 1);
-
 				}
 				
-				// Every set of 3 data points (x,y,z) are classified
+				// Every set of data points (x,y,z) is classified
 				position currentLineData{ data[0], data[1], data[2], };
 
 				// Return the classfication of the specified coordinates
